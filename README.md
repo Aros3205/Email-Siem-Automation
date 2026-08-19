@@ -86,13 +86,32 @@ The connectivity test below shows successful communication with the host at `10.
 
 ## 4. URL Extraction & Analysis
 
-The monitoring workflow extracts URLs from email messages and includes VirusTotal API functionality for URL analysis.
+The monitoring script extracts URLs from incoming email messages for further analysis. Each detected link is displayed in the terminal alongside the corresponding email subject, demonstrating the script's ability to identify and isolate potentially suspicious URLs from email content.
 
-![URL Analysis](screenshots/04-url-analysis.png)
+The extracted URLs are then processed as part of the monitoring workflow, with the resulting events forwarded to Splunk for centralized security monitoring and analysis.
+
+![URL Extraction and Analysis](Screenshots/URL-Extraction-Analysis.png)
 
 ---
 
-## 5. Splunk HEC Integration
+## 5. VirusTotal Analysis and Splunk Integration
+
+The monitoring script successfully detected a test email, extracted the embedded URL, and submitted it for VirusTotal analysis.
+
+The email event was then successfully sent to Splunk for security monitoring and analysis.
+
+![VirusTotal Analysis and Splunk Event](05_VT_Splunk.png)
+
+**Observed Results:**
+- Email successfully detected
+- URL successfully extracted
+- VirusTotal analysis executed
+- Event successfully sent to Splunk
+- INBOX and `[Gmail]/Spam` folders monitored
+
+
+
+## 6. Splunk HEC Integration
 
 I configured the monitoring script to forward processed email events to Splunk through the HTTP Event Collector (HEC) over HTTPS.
 
