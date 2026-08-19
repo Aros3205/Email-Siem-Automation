@@ -74,17 +74,13 @@ I created controlled test emails using `Send_Email.py` to provide data for the m
 
 ## 3. VM-to-Host Connectivity
 
-The Python environment was running inside my Windows 10 VM while Splunk Enterprise was running on my host machine.
+The Python environment was running inside my Windows 10 VM while Splunk Enterprise was running on the host machine.
 
-I initially configured the connection using `localhost`. Since the Python script was running inside the VM, I changed the configuration to use the host machine's reachable IP address.
+Initially, the configuration used `localhost`, which refers to the VM itself. I changed the configuration to use the host machine's reachable IP address and verified connectivity from the VM.
 
-I then tested connectivity to the Splunk HEC endpoint on port `8088`.
+The connectivity test below shows successful communication with the host at `10.0.0.1`, with 4 packets received and 0% packet loss.
 
-```powershell
-Test-NetConnection <SPLUNK_HOST_IP> -Port 8088
-```
-
-![Splunk Connectivity Test](screenshots/03-splunk-connectivity.png)
+![VM-to-Host Connectivity](Screenshots/VM-to-Host-Connectivity.png)
 
 ---
 
