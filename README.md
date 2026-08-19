@@ -62,19 +62,15 @@ SPL Search & Analysis
 
 I created controlled test emails using `Send_Email.py` to provide data for the monitoring workflow.
 
-![Send Email Script](screenshots/01-send-email.png)
-
+![Email Simulation](Screenshots/Send_Email%20(2).png)
 ---
 
 ## 2. Email Monitoring
 
-`Monitor_Email.py` monitors the configured mailbox and processes incoming messages.
+`Monitor_Email.py` monitors the configured mailbox, processes incoming messages, extracts relevant email and URL information, and forwards the resulting events to Splunk.
 
-The script extracts relevant information such as email metadata, message content, URLs, and attachments.
-
-![Email Monitoring](screenshots/02-monitor-email.png)
-
----
+![Email Monitoring](Screenshots/Send_Email.png)
+...
 
 ## 3. VM-to-Host Connectivity
 
