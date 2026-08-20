@@ -6,7 +6,7 @@ I built this project to understand how an automated email-monitoring workflow ca
 
 The workflow connects:
 
-![work_flow_diagraml Script](screenshots/01-send-email.png)
+![Email SIEM Automation Workflow](Screenshots/email-siem-workflow.png)
 
 The Python components run inside a Windows 10 VirtualBox VM, while Splunk Enterprise runs on the host machine.
 
