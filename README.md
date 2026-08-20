@@ -1,7 +1,3 @@
-# Email-Siem-Automation
-Python-based  Email Monitoring and Splunk SIEM Integration
-
-
 # Email SIEM Automation & Splunk Integration
 
 ## Overview
@@ -122,57 +118,49 @@ For this lab environment, **SSL was disabled** to allow the monitoring process t
 
 ---
 
-## 6. Splunk Event Verification
+## 7. Splunk Event Verification
+The Splunk search confirmed that the email-monitoring events were successfully received and indexed. The search returned **10 events**, confirming that the processed email data was successfully transmitted through Splunk HEC and was available for analysis.
 
-The events were configured with the following metadata:
+![Splunk Event Verification](Screenshots/Splunk_Event_Verification.png)
 
-```text
-source = email_monitor
-sourcetype = email_event
-```
+``
 
-I used the following SPL search to locate the events:
+## Fial Workflow
 
-```spl
-source="email_monitor" sourcetype="email_event"
-```
 
-![Splunk Events](screenshots/06-splunk-events.png)
+    Test/Threat Email
+            ↓
+    Gmail Inbox
+            ↓
+    Monitor_Email.py
+            ↓
+    Email & URL Extraction
+            ↓
+    VirusTotal URL Analysis
+            ↓
+    Splunk HEC
+            ↓
+    Splunk Enterprise
+            ↓
+    SPL Search / Event Verification
+            ↓
+    Security Analysis
 
----
+   ``
 
-## Final Workflow
 
-```text
-Test Email
-    ↓
-Gmail
-    ↓
-Monitor_Email.py
-    ↓
-Email & URL Processing
-    ↓
-Splunk HEC
-    ↓
-Splunk Enterprise
-    ↓
-SPL Search
-    ↓
-Security Analysis
-```
 
----
 
 ## Key Takeaways
 
 - Built a Python-based email monitoring workflow.
-- Integrated Python with Splunk HEC.
-- Worked with VM-to-host networking.
-- Used HTTPS for SIEM event transmission.
-- Worked with Splunk event metadata.
-- Used SPL to locate and verify ingested events.
-- Validated the end-to-end security-event pipeline.
-- Gained practical experience troubleshooting a multi-layer SIEM integration.
+- Extracted email content and URLs for security analysis.
+- Used VirusTotal to analyze extracted URLs.
+- Integrated Python with Splunk using HTTP Event Collector (HEC).
+- Worked with VM-to-host networking and connectivity troubleshooting.
+- Used SPL searches to locate and verify ingested security events.
+- Troubleshot Splunk HEC connectivity and SSL certificate configuration issues.
+- Validated the end-to-end email security monitoring pipeline.
 
 ---
 
@@ -180,11 +168,7 @@ Security Analysis
 
 Sensitive credentials and API keys were stored in `.env` rather than directly in the Python scripts.
 
-The local Splunk instance used a self-signed certificate. For this controlled laboratory environment, certificate verification was disabled using:
-
-```python
-verify=False
-```
+The local Splunk instance used a self-signed certificate which caused certificate verification issue during testing. In the controlled laboratory environment, certificate verification was temporarily disabled using `verify=False` while troubleshooting the HEC connection
 
 For a production environment, certificate verification should remain enabled and the appropriate trusted CA certificate should be configured.
 
@@ -193,6 +177,7 @@ For a production environment, certificate verification should remain enabled and
 ## Project Structure
 
 ```text
+
 email-siem-project/
 │
 ├── README.md
@@ -201,12 +186,13 @@ email-siem-project/
 ├── .gitignore
 │
 └── screenshots/
-    ├── 01-send-email.png
-    ├── 02-monitor-email.png
-    ├── 03-splunk-connectivity.png
-    ├── 04-url-analysis.png
-    ├── 05-events-sent-to-splunk.png
-    └── 06-splunk-events.png
+    ├── 01-test-threat-email.png
+    ├── 02-email-monitoring.png
+    ├── 03-vm-to-host-connectivity.png
+    ├── 04-email-url-extraction.png
+    ├── 05-virustotal-url-analysis.png
+    ├── 06-splunk-hec-integration.png
+    └── 07-splunk-event-verification.png
 ```
 
 ---
