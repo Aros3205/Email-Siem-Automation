@@ -110,10 +110,13 @@ The email event was then successfully sent to Splunk for security monitoring and
 - INBOX and `[Gmail]/Spam` folders monitored
 
 
-
 ## 6. Splunk HEC Integration
 
-The monitoring process was integrated with Splunk using the HTTP Event Collector (HEC). Splunk HEC was enabled and configured to receive HTTP event data on port 8088.
+The monitoring process was integrated with Splunk using the **HTTP Event Collector (HEC)**. Splunk HEC was enabled and configured to receive HTTP event data on port **8088**.
+
+For this lab environment, **SSL was disabled** to allow the monitoring process to communicate with the Splunk HEC endpoint over HTTP and resolve connectivity issues encountered during testing.
+
+> **Note:** In a production environment, HTTPS/TLS would be preferred to protect event data in transit.
 
 ![Splunk HEC Settings](Screenshots/Splunk_HEC_Settings.png)
 
