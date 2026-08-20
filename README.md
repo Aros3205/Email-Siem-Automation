@@ -100,7 +100,7 @@ The monitoring script successfully detected a test email, extracted the embedded
 
 The email event was then successfully sent to Splunk for security monitoring and analysis.
 
-![VirusTotal Analysis and Splunk Event](05_VT_Splunk.png)
+![VirusTotal Analysis and Splunk Event](Screenshots/VT_Splunk.png)
 
 **Observed Results:**
 - Email successfully detected
@@ -113,9 +113,9 @@ The email event was then successfully sent to Splunk for security monitoring and
 
 ## 6. Splunk HEC Integration
 
-I configured the monitoring script to forward processed email events to Splunk through the HTTP Event Collector (HEC) over HTTPS.
+The monitoring process was integrated with Splunk using the HTTP Event Collector (HEC). Splunk HEC was enabled and configured to receive HTTP event data on port 8088.
 
-![Splunk HEC Event Transmission](screenshots/05-events-sent-to-splunk.png)
+![Splunk HEC Settings](Screenshots/Splunk_HEC_Settings.png)
 
 ---
 
